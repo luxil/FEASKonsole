@@ -5,6 +5,7 @@
   * */
 
 #include "facedetandfpl.h"
+#include "win.h"
 
 #include <dlib/opencv.h>
 #include <opencv2/highgui/highgui.hpp>
@@ -17,19 +18,11 @@
 using namespace std;
 using namespace dlib;
 
-
 FaceDetAndFPL::FaceDetAndFPL()
-{
+{    
 }
 
-
-FaceDetAndFPL::~FaceDetAndFPL()
-{
-}
-
-
-int FaceDetAndFPL::funcFaceDetAndFPL(){
-
+void FaceDetAndFPL::findFacesAndPoints(){
     try
     {
         string pathToSPDat = "C:/Users/Linh Do/Desktop/FEASKonsole/dlib-19.2/shape_predictor_68_face_landmarks.dat";
@@ -37,18 +30,15 @@ int FaceDetAndFPL::funcFaceDetAndFPL(){
         if (!cap.isOpened())
         {
             cerr << "Unable to connect to camera" << endl;
-            return 1;
+            //return 1;
         }
-
-        image_window win;
 
         // Load face detection and pose estimation models.
         frontal_face_detector detector = get_frontal_face_detector();
         shape_predictor pose_model;
         deserialize(pathToSPDat) >> pose_model;
         // Grab and process frames until the main window is closed by the user.
-        while(!win.is_closed())
-        {
+        while(!winClass.is_closed()){
             // Grab a frame
             cv::Mat temp;
             cap >> temp;
@@ -68,13 +58,12 @@ int FaceDetAndFPL::funcFaceDetAndFPL(){
                 dlib::full_object_detection shape = pose_model(cimg, faces[i]);
 
                 cout << "pixel position of first part:  " << shape.part(0) << endl;
-                //shapes.push_back(pose_model(cimg, faces[i]));
                 shapes.push_back(shape);
             }
             // Display it all on the screen
-            win.clear_overlay();
-            win.set_image(cimg);
-            win.add_overlay(render_face_detections(shapes));
+            winClass.drawImage(cimg);
+            sendFacePoints(shapes);
+            winClass.drawFacePoints();
         }
     }
     catch(serialization_error& e)
@@ -88,4 +77,14 @@ int FaceDetAndFPL::funcFaceDetAndFPL(){
     {
         cout << e.what() << endl;
     }
+}
+
+
+FaceDetAndFPL::~FaceDetAndFPL()
+{
+}
+
+
+void FaceDetAndFPL::sendFacePoints(std::vector<full_object_detection> shapes){
+    winClass.shapes = shapes;
 }

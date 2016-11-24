@@ -13,7 +13,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
 dlib-19.2/dlib/all/source.cpp\
-    facedetandfpl.cpp
+    facedetandfpl.cpp \
+    win.cpp
 
 
 INCLUDEPATH += dlib-19.2
@@ -28,4 +29,5 @@ include(../opencv/videoengine.pri)
 #QMAKE_CXXFLAGS += -DDLIB_JPEG_SUPPORT
 
 HEADERS += \
-    facedetandfpl.h
+    facedetandfpl.h \
+    win.h
