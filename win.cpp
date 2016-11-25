@@ -1,5 +1,6 @@
 #include "win.h"
 #include <dlib/gui_widgets.h>
+#include <dlib/image_processing/render_face_detections.h>
 
 Win::Win()
     :imageWin(new dlib::image_window)
