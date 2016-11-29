@@ -14,5 +14,3 @@ HEADERS  += ../opencv/videoengine.h \
             ../opencv/cvmattoqimage.h \
             ../opencv/videoprocessor.h \
     ../opencv/videoformat.h\
-
-include(../opencv/opencv.pri)

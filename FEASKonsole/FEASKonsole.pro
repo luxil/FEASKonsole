@@ -12,14 +12,14 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp\
-dlib-19.2/dlib/all/source.cpp\
+../dlib-19.2/dlib/all/source.cpp\
     facedetandfpl.cpp \
     win.cpp
 
 
-INCLUDEPATH += dlib-19.2
+INCLUDEPATH += ../dlib-19.2
 QMAKE_CXXFLAGS_RELEASE += /arch:AVX
-include(../opencv/videoengine.pri)
+
 
 #LIBS+= -lgdi32 -lcomctl32 -luser32 -lwinmm -lws2_32
 #LIBS+= -lgdi32 -lcomctl32 -luser32 -lwinmm -lws2_32
@@ -31,3 +31,7 @@ include(../opencv/videoengine.pri)
 HEADERS += \
     facedetandfpl.h \
     win.h
+
+include(../opencv/opencv.pri)
+include(../opencv/videoengine.pri)
+
