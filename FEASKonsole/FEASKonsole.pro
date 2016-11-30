@@ -14,13 +14,18 @@ SOURCES += main.cpp\
         facedetandfpl.cpp \
         win.cpp \
         soundmodus.cpp \
-        mymediaplayer.cpp
+        mymediaplayer.cpp \
+        widget.cpp
 
 HEADERS += \
         facedetandfpl.h \
         win.h \
         soundmodus.h \
-        mymediaplayer.h
+        mymediaplayer.h \
+        widget.h
+
+FORMS += \
+        widget.ui
 
 include(../opencv/opencv.pri)
 include(../opencv/videoengine.pri)

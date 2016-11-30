@@ -1,21 +1,18 @@
-#include <QCoreApplication>
-#include "facedetandfpl.h"
-#include "soundmodus.h"
-#include "win.h"
+#include <QApplication>
 #include <QDebug>
+#include "widget.h"
+//#include "win.h"
 
-void openWindow(){
+/*void openWindow(){
     qDebug() <<">>> openWindow";
     Win win;
-}
+}*/
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
-    //Test ob das Soundabspielen funktioniert
-    //SoundModus soundModus;
-    //soundModus.augenauf();
+    QApplication a(argc, argv);
+    //Widget window;
+    //window.show();
 
 
     FaceDetAndFPL f;
