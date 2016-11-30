@@ -21,7 +21,7 @@ FaceDetAndFPL::FaceDetAndFPL()
 void FaceDetAndFPL::findFacesAndPoints(){
     try
     {
-        string pathToSPDat = "C:/Users/Linh Do/Desktop/FEASKonsole/dlib-19.2/shape_predictor_68_face_landmarks.dat";
+        string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
         cv::VideoCapture cap(0);
         if (!cap.isOpened())
         {
