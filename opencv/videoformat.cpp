@@ -11,10 +11,10 @@ VideoFormat::VideoFormat()
 
 
 void VideoFormat::setFormat(cv::VideoCapture & videoCapture){
-    _frameWidth =  videoCapture.get(CV_CAP_PROP_FRAME_WIDTH);
-    _frameHeight = videoCapture.get(CV_CAP_PROP_FRAME_HEIGHT);
-    _framesPerSecond = videoCapture.get(CV_CAP_PROP_FPS);
-    _frameCount = videoCapture.get(CV_CAP_PROP_FRAME_COUNT);
+    _frameWidth = (int) videoCapture.get(CV_CAP_PROP_FRAME_WIDTH);
+    _frameHeight = (int)videoCapture.get(CV_CAP_PROP_FRAME_HEIGHT);
+    _framesPerSecond = (int) videoCapture.get(CV_CAP_PROP_FPS);
+    _frameCount = (int) videoCapture.get(CV_CAP_PROP_FRAME_COUNT);
     if (_framesPerSecond == 0){
         _framesPerSecond = 30;
     }
