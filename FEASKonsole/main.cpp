@@ -11,12 +11,12 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    //Widget window;
-    //window.show();
+    Widget window;
+    window.show();
 
 
-    FaceDetAndFPL f;
-    f.findFacesAndPoints();
+    //FaceDetAndFPL f;
+    //f.findFacesAndPoints();
     return a.exec();
 }
 
