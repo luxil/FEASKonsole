@@ -15,14 +15,30 @@ SOURCES += main.cpp\
         win.cpp \
         soundmodus.cpp \
         mymediaplayer.cpp \
-        widget.cpp
+        widget.cpp \
+    sendoscmsg.cpp \
+    ip/IpEndpointName.cpp \
+    ip/NetworkingUtils.cpp \
+    ip/UdpSocket.cpp \
+    osc/OscOutboundPacketStream.cpp \
+    osc/OscTypes.cpp
 
 HEADERS += \
         facedetandfpl.h \
         win.h \
         soundmodus.h \
         mymediaplayer.h \
-        widget.h
+        widget.h \
+    sendoscmsg.h \
+    ip/IpEndpointName.h \
+    ip/NetworkingUtils.h \
+    ip/PacketListener.h \
+    ip/TimerListener.h \
+    ip/UdpSocket.h \
+    osc/OscException.h \
+    osc/OscHostEndianness.h \
+    osc/OscOutboundPacketStream.h \
+    osc/OscTypes.h
 
 FORMS += \
         widget.ui

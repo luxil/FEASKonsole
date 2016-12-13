@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>TabWidget</string>
   </property>
+  <property name="currentIndex">
+   <number>1</number>
+  </property>
   <widget class="QWidget" name="tab">
    <attribute name="title">
     <string>Tab 1</string>
@@ -35,6 +38,19 @@
    <attribute name="title">
     <string>Tab 2</string>
    </attribute>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>100</y>
+      <width>101</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PureData DSP</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

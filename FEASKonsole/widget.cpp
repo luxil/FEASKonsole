@@ -18,3 +18,8 @@ void Widget::on_TonModus_clicked()
 {
     faceDetAndFPL.findFacesAndPoints();
 }
+
+void Widget::on_checkBox_clicked(bool checked)
+{
+    sendoscmsg.send("/DSP", checked);
+}
