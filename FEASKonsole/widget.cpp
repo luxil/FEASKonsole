@@ -56,12 +56,12 @@ void Widget::on_KopfskalierungSlider_valueChanged(int value)
     sendoscmsg->send("/Kopfskalierung", value);
 }
 
-void Widget::on_AugeLcheckBox_clicked(bool checked)
+void Widget::on_param1_slider_valueChanged(int value)
 {
-    sendoscmsg->send("/AugeL", checked);
+    sendoscmsg->send("/AugeL", value);
 }
 
-void Widget::on_AugeRcheckBox_clicked(bool checked)
+void Widget::on_param2_slider_valueChanged(int value)
 {
-    sendoscmsg->send("/AugeR", checked);
+    sendoscmsg->send("/AugeR", value);
 }

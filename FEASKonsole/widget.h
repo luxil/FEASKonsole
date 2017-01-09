@@ -39,14 +39,14 @@ private slots:
 
     void on_KopfskalierungSlider_valueChanged(int value);
 
-    void on_AugeLcheckBox_clicked(bool checked);
+    void on_param1_slider_valueChanged(int value);
 
-    void on_AugeRcheckBox_clicked(bool checked);
+    void on_param2_slider_valueChanged(int value);
 
 private:
     Ui::Widget *ui;
     FaceDetAndFPL faceDetAndFPL;
-    SoundModus soundModus;
+    SoundModus *soundModus;
     Sendoscmsg *sendoscmsg;
 };
 
