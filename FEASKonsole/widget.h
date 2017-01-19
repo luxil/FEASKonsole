@@ -27,10 +27,26 @@ private slots:
 
     void on_checkBox_clicked(bool checked);
 
+    void on_MundHSlider_valueChanged(int value);
+
+    void on_MundBlSlider_valueChanged(int value);
+
+    void on_AugenbraueLSlider_valueChanged(int value);
+
+    void on_AugenbraueRSlider_valueChanged(int value);
+
+    void on_KopfDrehungSlider_valueChanged(int value);
+
+    void on_KopfskalierungSlider_valueChanged(int value);
+
+    void on_param1_slider_valueChanged(int value);
+
+    void on_param2_slider_valueChanged(int value);
+
 private:
     Ui::Widget *ui;
     FaceDetAndFPL faceDetAndFPL;
-    SoundModus soundModus;
+    SoundModus *soundModus;
     Sendoscmsg *sendoscmsg;
 };
 
