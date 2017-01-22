@@ -21,7 +21,9 @@ SOURCES += main.cpp\
     ip/NetworkingUtils.cpp \
     ip/UdpSocket.cpp \
     osc/OscOutboundPacketStream.cpp \
-    osc/OscTypes.cpp
+    osc/OscTypes.cpp \
+    test.cpp \
+    facepointstosound.cpp
 
 HEADERS += \
         facedetandfpl.h \
@@ -38,7 +40,8 @@ HEADERS += \
     osc/OscException.h \
     osc/OscHostEndianness.h \
     osc/OscOutboundPacketStream.h \
-    osc/OscTypes.h
+    osc/OscTypes.h \
+    facepointstosound.h
 
 FORMS += \
         widget.ui

@@ -6,6 +6,8 @@
 
 #include "facedetandfpl.h"
 #include "win.h"
+#include "punkteverarbeiterungsk.h"
+#include "facepointstosound.h"
 
 #include <dlib/image_processing/frontal_face_detector.h>
 #include <opencv2/highgui/highgui.hpp>
@@ -14,7 +16,9 @@
 using namespace std;
 using namespace dlib;
 
-FaceDetAndFPL::FaceDetAndFPL()
+FaceDetAndFPL::FaceDetAndFPL():
+    sendoscmsg(new Sendoscmsg)
+    ,fpts(new FacePointsToSound)
 {    
 }
 
@@ -53,14 +57,16 @@ void FaceDetAndFPL::findFacesAndPoints(){
             for (unsigned long i = 0; i < faces.size(); ++i){
                 dlib::full_object_detection shape = pose_model(cimg, faces[i]);
 
-                cout << "pixel position of first part:  " << shape.part(0) << endl;
+                //cout << "pixel position of first part:  " << shape.part(0) << endl;
                 shapes.push_back(shape);
+                cout << "shapes" << shapes[0].part(0)(0) <<endl;
             }
             // Display it all on the screen
 
             sendFacePoints(shapes);
             winClass.drawImage(cimg);
             winClass.drawFacePoints();
+            fpts->cap = cap;
         }
     }
     catch(serialization_error& e)
@@ -81,4 +87,8 @@ FaceDetAndFPL::~FaceDetAndFPL()
 
 void FaceDetAndFPL::sendFacePoints(std::vector<full_object_detection> shapes){
     winClass.shapes = shapes;
+    fpts->shapes = shapes;
+    fpts->playSound();
+
+
 }
