@@ -38,7 +38,7 @@ void FacePointsToSound::playSound(){
     rotationHead=abs((double)shapes[0].part(36).y()-shapes[0].part(45).y())*100/((shapes[0].part(0)-shapes[0].part(16)).length()*ratioHeadRotation);
 
     //Ausgabe
-    cout <<" X: "<<clampParam(headpositionX);//
+    cout <<" X: "<<clampParam(headpositionX);
     cout <<" Y: "<<clampParam(headpositionY);//
     cout <<" Kopfneigung: "<<clampParam(rotationHead);//
     cout <<" BraueLinks: "<<clampParam(browL);//

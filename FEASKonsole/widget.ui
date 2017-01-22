@@ -46,19 +46,6 @@
      <string>Synthesizer  Modus</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="TonModus_3">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>290</y>
-      <width>171</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Augenbrauen auf 80</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QWidget" name="tab">
    <attribute name="title">
