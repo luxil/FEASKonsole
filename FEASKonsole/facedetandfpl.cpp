@@ -6,7 +6,6 @@
 
 #include "facedetandfpl.h"
 #include "win.h"
-#include "punkteverarbeiterungsk.h"
 #include "facepointstosound.h"
 
 #include <dlib/image_processing/frontal_face_detector.h>
@@ -59,14 +58,17 @@ void FaceDetAndFPL::findFacesAndPoints(){
 
                 //cout << "pixel position of first part:  " << shape.part(0) << endl;
                 shapes.push_back(shape);
-                cout << "shapes" << shapes[0].part(0)(0) <<endl;
+                //cout << "shapes" << shapes[0].part(0)(0) <<endl;
+                cout << "faces.size()" << faces.size() <<endl;
+
             }
             // Display it all on the screen
-
-            sendFacePoints(shapes);
-            winClass.drawImage(cimg);
-            winClass.drawFacePoints();
-            fpts->cap = cap;
+            if(faces.size() >0){
+                sendFacePoints(shapes);
+                winClass.drawImage(cimg);
+                winClass.drawFacePoints();
+                fpts->cap = cap;
+            }
         }
     }
     catch(serialization_error& e)
@@ -89,6 +91,6 @@ void FaceDetAndFPL::sendFacePoints(std::vector<full_object_detection> shapes){
     winClass.shapes = shapes;
     fpts->shapes = shapes;
     fpts->playSound();
-
-
+    //cout << typeid(shapes[0].part(0)(0)).name() << endl;
+    //cout << "shapessizetes" << shapes[0].part(0)(0) <<endl;
 }
