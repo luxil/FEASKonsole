@@ -68,6 +68,7 @@ void FaceDetAndFPL::findFacesAndPoints(){
                 winClass.drawImage(cimg);
                 winClass.drawFacePoints();
                 fpts->cap = cap;
+                fpts->playSound();
             }
         }
     }
@@ -90,7 +91,4 @@ FaceDetAndFPL::~FaceDetAndFPL()
 void FaceDetAndFPL::sendFacePoints(std::vector<full_object_detection> shapes){
     winClass.shapes = shapes;
     fpts->shapes = shapes;
-    fpts->playSound();
-    //cout << typeid(shapes[0].part(0)(0)).name() << endl;
-    //cout << "shapessizetes" << shapes[0].part(0)(0) <<endl;
 }

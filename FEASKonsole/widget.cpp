@@ -1,6 +1,7 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "sendoscmsg.h"
+using namespace std;
 
 Widget::Widget(QWidget *parent) :
     QTabWidget(parent),
@@ -24,6 +25,7 @@ void Widget::on_TonModus_clicked()
 void Widget::on_checkBox_clicked(bool checked)
 {
     sendoscmsg->send("/DSP", checked);
+    cout << "checked" << checked << endl;
 }
 
 void Widget::on_MundHSlider_valueChanged(int value)
@@ -64,4 +66,16 @@ void Widget::on_param1_slider_valueChanged(int value)
 void Widget::on_param2_slider_valueChanged(int value)
 {
     sendoscmsg->send("/AugeR", value);
+}
+
+void Widget::on_TonModus_2_clicked()
+{
+    sendoscmsg->send("/DSP", 1);
+    faceDetAndFPL.findFacesAndPoints();
+
+}
+
+void Widget::on_TonModus_3_clicked()
+{
+    sendoscmsg->send("/Kopfdrehung", 80);
 }

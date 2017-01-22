@@ -3,10 +3,12 @@
 #include <dlib/gui_widgets.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <dlib/image_processing.h>
+#include "sendoscmsg.h"
 using namespace std;
 
 
-FacePointsToSound::FacePointsToSound()
+FacePointsToSound::FacePointsToSound():
+    sendoscmsg(new Sendoscmsg)
 {
 }
 
@@ -36,13 +38,22 @@ void FacePointsToSound::playSound(){
     rotationHead=abs((double)shapes[0].part(36).y()-shapes[0].part(45).y())*100/((shapes[0].part(0)-shapes[0].part(16)).length()*ratioHeadRotation);
 
     //Ausgabe
-    cout <<" X: "<<clampParam(headpositionX);
-    cout <<" Y: "<<clampParam(headpositionY);
-    cout <<" Kopfneigung: "<<clampParam(rotationHead);
-    cout <<" BraueLinks: "<<clampParam(browL);
-    cout <<" BraueRechts: "<<clampParam(browR);
-    cout <<" Mund: "<<clampParam(mouthOpen);
+    cout <<" X: "<<clampParam(headpositionX);//
+    cout <<" Y: "<<clampParam(headpositionY);//
+    cout <<" Kopfneigung: "<<clampParam(rotationHead);//
+    cout <<" BraueLinks: "<<clampParam(browL);//
+    cout <<" BraueRechts: "<<clampParam(browR);//
+    cout <<" Mund: "<<clampParam(mouthOpen);//
     cout <<endl;
+
+        sendoscmsg->send("/MundH", clampParam(mouthOpen));
+        //sendoscmsg->send("/MundB", value);
+        sendoscmsg->send("/AugenbraueL", clampParam(browL));
+        sendoscmsg->send("/AugenbraueR", clampParam(browR));
+        sendoscmsg->send("/Kopfdrehung", clampParam(rotationHead));
+        //sendoscmsg->send("/Kopfskalierung", value);
+        sendoscmsg->send("/AugeL", clampParam(headpositionX));
+        sendoscmsg->send("/AugeR", clampParam(headpositionY));
 
 }
 

@@ -5,6 +5,7 @@
 #include <dlib/gui_widgets.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <dlib/image_processing.h>
+#include "sendoscmsg.h"
 
 
 class FacePointsToSound
@@ -16,6 +17,7 @@ public:
     void playSound();
     double clampParam(double percent);
     cv::VideoCapture cap;
+    Sendoscmsg *sendoscmsg;
 };
 
 #endif // FACEPOINTSTOSOUND_H
