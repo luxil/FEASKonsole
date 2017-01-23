@@ -12,7 +12,7 @@
 class FaceDetAndFPL
 {
 public:
-    Win winClass;
+    Win *winClass;
 
     FaceDetAndFPL();
     ~FaceDetAndFPL();

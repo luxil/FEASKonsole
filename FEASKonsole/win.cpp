@@ -13,7 +13,7 @@ Win::Win()
 
 Win::~Win(){
     //nicht ausführen, sonst schließt sich das Fenster
-    //delete imageWin;
+    delete imageWin;
 }
 
 boolean Win::is_closed(){
@@ -29,6 +29,5 @@ void Win::drawImage(dlib::cv_image<dlib::bgr_pixel> cimg){
 
 void Win::drawFacePoints(){
     imageWin->add_overlay(dlib::render_face_detections(shapes));
-    //cout << "shapes" << shapes[0].part(0) <<endl;
 }
 

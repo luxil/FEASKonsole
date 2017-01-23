@@ -1,8 +1,8 @@
 #include "mymediaplayer.h"
 #include <QDebug>       //für debug Konsolenausagbe
 
-//const QString path = "../Sounds/";
-const QString path = "C:/Users/Muffinman/Desktop/GitSpace/FEASKonsole/Sounds/";
+const QString path = "../Sounds/";
+//const QString path = "C:/Users/Muffinman/Desktop/GitSpace/FEASKonsole/Sounds/";
 MyMediaPlayer::MyMediaPlayer():
     mMediaPlayer(new QMediaPlayer)
 {

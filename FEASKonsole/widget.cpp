@@ -1,12 +1,15 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "sendoscmsg.h"
+#include "win.h"
+#include "facedetandfpl.h"
 using namespace std;
 
 Widget::Widget(QWidget *parent) :
     QTabWidget(parent),
     ui(new Ui::Widget),
     sendoscmsg(new Sendoscmsg)
+    //faceDetAndFPL(new FaceDetAndFPL)
 {
     ui->setupUi(this);
 }
@@ -19,9 +22,10 @@ Widget::~Widget()
 
 void Widget::on_TonModus_clicked()
 {
-    faceDetAndFPL.programmModus = 0;
+    faceDetAndFPL=new FaceDetAndFPL;
+    faceDetAndFPL->programmModus = 0;
     sendoscmsg->send("/DSP", 0);
-    faceDetAndFPL.findFacesAndPoints();
+    faceDetAndFPL->findFacesAndPoints();
 }
 
 void Widget::on_checkBox_clicked(bool checked)
@@ -72,9 +76,10 @@ void Widget::on_param2_slider_valueChanged(int value)
 
 void Widget::on_TonModus_2_clicked()
 {
-    faceDetAndFPL.programmModus = 1;
+    faceDetAndFPL=new FaceDetAndFPL;
+    faceDetAndFPL->programmModus = 1;
     sendoscmsg->send("/DSP", 1);
-    faceDetAndFPL.findFacesAndPoints();
+    faceDetAndFPL->findFacesAndPoints();
 
 }
 

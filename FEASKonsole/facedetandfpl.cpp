@@ -22,14 +22,17 @@ FaceDetAndFPL::FaceDetAndFPL():
     ,fpts(new FacePointsToSound)
     ,soundModus(new SoundModus)
     ,fptSam(new facepointstosample)
+    ,winClass(new Win)
 {    
 }
+
+
 
 void FaceDetAndFPL::findFacesAndPoints(){
     try
     {
-       // string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
-        string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
+        string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
+        //string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
         cv::VideoCapture cap(0);
         if (!cap.isOpened()){
             cerr << "Unable to connect to camera" << endl;
@@ -41,7 +44,7 @@ void FaceDetAndFPL::findFacesAndPoints(){
         shape_predictor pose_model;
         deserialize(pathToSPDat) >> pose_model;
         // Grab and process frames until the main window is closed by the user.
-        while(!winClass.is_closed()){
+        while(!winClass->is_closed()){
             // Grab a frame
             cv::Mat temp;
             cap >> temp;
@@ -69,8 +72,8 @@ void FaceDetAndFPL::findFacesAndPoints(){
             // Display it all on the screen
             if(faces.size() >0){
                 sendFacePoints(shapes);
-                winClass.drawImage(cimg);
-                winClass.drawFacePoints();
+                winClass->drawImage(cimg);
+                winClass->drawFacePoints();
 
                 if(programmModus==1){
                     fpts->cap = cap;
@@ -137,7 +140,8 @@ FaceDetAndFPL::~FaceDetAndFPL()
 
 
 void FaceDetAndFPL::sendFacePoints(std::vector<full_object_detection> shapes){
-    winClass.shapes = shapes;
+    winClass->shapes = shapes;
     fpts->shapes = shapes;
     fptSam->shapes = shapes;
 }
+

@@ -47,7 +47,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    FaceDetAndFPL faceDetAndFPL;
+    FaceDetAndFPL *faceDetAndFPL;
     Sendoscmsg *sendoscmsg;
 };
 
