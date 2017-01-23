@@ -5,6 +5,7 @@
 #include "punkteverarbeitungsk.h"
 #include "sendoscmsg.h"
 #include "facepointstosample.h"
+#include "soundmodus.h"
 
 
 class FaceDetAndFPL
@@ -18,6 +19,7 @@ public:
     void sendFacePoints(std::vector<dlib::full_object_detection> shapes);
     Sendoscmsg *sendoscmsg;
     facepointstosample *fpts;
+    SoundModus *soundModus;
 };
 
 #endif // FACEDETANDFPL_H

@@ -71,6 +71,47 @@ void FaceDetAndFPL::findFacesAndPoints(){
                 fpts->cap = cap;
                 fpts->playSound();
             }
+            if(soundModus->on){
+                if(fpts->getBrowL() > 90){
+                    soundModus->braueLinks();
+                    cout<<"braue Links: " <<fpts->getBrowL() << endl;
+                }
+
+                else if (fpts->getBrowR() > 90){
+                    soundModus->braueRechts();
+                    cout<<"braue Rechts: " <<fpts->getBrowR() << endl;
+                }
+
+                else if (fpts->getHeadPosX() > 95){
+                    soundModus->kopfoben();
+                    cout<<"HeadPosX 95: " <<fpts->getHeadPosX() << endl;
+                }
+
+                else if (fpts->getHeadPosX() < 5){
+                    soundModus->kopfunten();
+                    cout<<"HeadPosX 5: " <<fpts->getHeadPosX()<< endl;
+                }
+
+                else if (fpts->getHeadPosY() > 95){
+                    soundModus->kopfrechts();
+                    cout<<"HeadPosY 95: " <<fpts->getHeadPosY()<< endl;
+                }
+
+                 else if (fpts->getHeadPosY() < 5){
+                    soundModus->kopflinks();
+                    cout<<"HeadPosY 5: " <<fpts->getHeadPosY() << endl;
+                }
+
+                else if (fpts->getMouthOpen() > 95){
+                    soundModus->mundauf();
+                    cout<<"MundAuf 95: " <<fpts->getMouthOpen() << endl;
+                }
+
+                else if (fpts->getRotationHead() > 95){
+                    soundModus->kopfrotation();
+                    cout<<"HeadRotation95: " <<fpts->getRotationHead()<< endl;
+                }
+            }
         }
     }
     catch(serialization_error& e)

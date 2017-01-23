@@ -20,6 +20,27 @@ public:
     double clampParam(double percent);
     cv::VideoCapture cap;
     Sendoscmsg *sendoscmsg;
+    void Parameterberechnung();
+    double getMouthOpen();
+    double getBrowR();
+    double getBrowL();
+    double getHeadPosY();
+    double getHeadPosX();
+    double getRotationHead();
+
+
+private:
+    double mouthOpen;
+    double browR;
+    double browL;
+    double headpositionY;
+    double headpositionX;
+    double rotationHead;
+    double ratioBrowLow;
+    double ratioBrowHigh;
+    double ratioMouth;
+    double ratioHeadRotation;
+    double headdistance;
 
 
 };

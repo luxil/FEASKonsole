@@ -2,22 +2,26 @@
 #define SOUNDMODUS_H
 
 #include "mymediaplayer.h"
+#include <windows.h>
 
 class SoundModus
 {
 public:
     SoundModus();
-    void augenauf();
-    void augenzu();
+    void braueLinks();
+    void braueRechts();
     void mundauf();
-    void mundzu();
-    void kopfnah();
-    void kopffern();
+    void kopfrotation();
+    void kopfoben();
+    void kopfunten();
     void kopflinks();
     void kopfrechts();
 
+public:
+    bool on;
+
 private:
-    MyMediaPlayer mediaPlayer;
+    MyMediaPlayer *mediaPlayer;
 };
 
 #endif // SOUNDMODUS_H

@@ -11,36 +11,29 @@ using namespace std;
 FacePointsToSound::FacePointsToSound():
     sendoscmsg(new Sendoscmsg)
 {
+    mouthOpen=0;
+    browR=0;
+    browL=0;
+    headpositionY=0;
+    headpositionX=0;
+    rotationHead=0;
+
+    ratioBrowLow=0.14;
+    ratioBrowHigh=0.26;
+    ratioMouth=0.18;
+    ratioHeadRotation=0.15;
 }
 
 
 void FacePointsToSound::playSound(){
 
     //Neue Variablen;
-    double mouthOpen=0;
-    double browR=0;
-    double browL=0;
-    double headpositionY=0;
-    double headpositionX=0;
-    double rotationHead=0;
-
-    double ratioBrowLow=0.14;
-    double ratioBrowHigh=0.26;
-    double ratioMouth=0.18;
-    double ratioHeadRotation=0.15;
     bool active=true;
     QTime delay;
 
 
     //Berechnung der Parameter!!!!!
-    mouthOpen=(double)((shapes[0].part(62)-shapes[0].part(66)).length())*100/((shapes[0].part(0)-shapes[0].part(16)).length()*ratioMouth);
-    browL=(double)((shapes[0].part(20)-shapes[0].part(40)).length()-(shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow)*100/(((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowHigh)-((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow));
-    browR=(double)((shapes[0].part(23)-shapes[0].part(47)).length()-(shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow)*100/(((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowHigh)-((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow));
-    headpositionY=abs((double)shapes[0].part(30).y()-(cap.get(CV_CAP_PROP_FRAME_HEIGHT)/2));
-    headpositionX=abs((double)shapes[0].part(30).x()-(cap.get(CV_CAP_PROP_FRAME_WIDTH)/2));
-    rotationHead=abs((double)shapes[0].part(36).y()-shapes[0].part(45).y())*100/((shapes[0].part(0)-shapes[0].part(16)).length()*ratioHeadRotation);
-
-
+    Parameterberechnung();
 
 
 if(active){
@@ -93,3 +86,38 @@ double FacePointsToSound::clampParam(double percent){
     return percent;
 
 }
+
+void FacePointsToSound::Parameterberechnung(){
+    //Berechnung der Parameter!!!!!
+    mouthOpen=(double)((shapes[0].part(62)-shapes[0].part(66)).length())*100/((shapes[0].part(0)-shapes[0].part(16)).length()*ratioMouth);
+    browL=(double)((shapes[0].part(20)-shapes[0].part(40)).length()-(shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow)*100/(((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowHigh)-((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow));
+    browR=(double)((shapes[0].part(23)-shapes[0].part(47)).length()-(shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow)*100/(((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowHigh)-((shapes[0].part(0)-shapes[0].part(16)).length()*ratioBrowLow));
+    headpositionY=abs((double)shapes[0].part(30).y()-(cap.get(CV_CAP_PROP_FRAME_HEIGHT)/2));
+    headpositionX=abs((double)shapes[0].part(30).x()-(cap.get(CV_CAP_PROP_FRAME_WIDTH)/2));
+    rotationHead=abs((double)shapes[0].part(36).y()-shapes[0].part(45).y())*100/((shapes[0].part(0)-shapes[0].part(16)).length()*ratioHeadRotation);
+}
+
+double FacePointsToSound::getMouthOpen(){
+    return mouthOpen;
+}
+
+double FacePointsToSound::getBrowR(){
+    return browR;
+}
+
+double FacePointsToSound::getBrowL(){
+    return browL;
+}
+
+double FacePointsToSound::getHeadPosY(){
+    return headpositionY;
+}
+
+double FacePointsToSound::getHeadPosX(){
+    return headpositionX;
+}
+
+double FacePointsToSound::getRotationHead(){
+    return rotationHead;
+}
+

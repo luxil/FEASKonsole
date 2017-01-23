@@ -50,7 +50,6 @@ private slots:
 private:
     Ui::Widget *ui;
     FaceDetAndFPL faceDetAndFPL;
-    SoundModus *soundModus;
     Sendoscmsg *sendoscmsg;
 };
 

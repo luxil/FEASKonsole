@@ -19,6 +19,7 @@ Widget::~Widget()
 
 void Widget::on_TonModus_clicked()
 {
+    faceDetAndFPL.soundModus->on = true;
     faceDetAndFPL.findFacesAndPoints();
 }
 
@@ -70,6 +71,7 @@ void Widget::on_param2_slider_valueChanged(int value)
 
 void Widget::on_TonModus_2_clicked()
 {
+    faceDetAndFPL.soundModus->on = false;
     sendoscmsg->send("/DSP", 1);
     faceDetAndFPL.findFacesAndPoints();
 
