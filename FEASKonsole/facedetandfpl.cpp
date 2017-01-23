@@ -28,8 +28,8 @@ FaceDetAndFPL::FaceDetAndFPL():
 void FaceDetAndFPL::findFacesAndPoints(){
     try
     {
-        string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
-         //string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
+        //string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
+         string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
         cv::VideoCapture cap(0);
         if (!cap.isOpened()){
             cerr << "Unable to connect to camera" << endl;
@@ -72,54 +72,55 @@ void FaceDetAndFPL::findFacesAndPoints(){
                 winClass.drawImage(cimg);
                 winClass.drawFacePoints();
 
-                if(programmModus=1){
+                if(programmModus==1){
                     fpts->cap = cap;
                     fpts->playSound();
 
-                } else if(programmModus=0){
+
+                } else if(programmModus==0){
                     fptSam->cap =cap;
                     fptSam->playSound();
 
 
-                    if(fptSam->getBrowL() > 90){
-                        soundModus->braueLinks();
+
+                  /*  if(fptSam->getBrowL() > 90){
+
                         cout<<"braue Links: " <<fptSam->getBrowL() << endl;
                     }
 
                     else if (fptSam->getBrowR() > 90){
-                        soundModus->braueRechts();
+
                         cout<<"braue Rechts: " <<fptSam->getBrowR() << endl;
                     }
 
                     else if (fptSam->getHeadPosX() > 95){
-                        soundModus->kopfoben();
+
                         cout<<"HeadPosX 95: " <<fptSam->getHeadPosX() << endl;
                     }
 
                     else if (fptSam->getHeadPosX() < 5){
-                        soundModus->kopfunten();
-                        cout<<"HeadPosX 5: " <<fptSam->getHeadPosX()<< endl;
+                        cout<<"headpositiony"<<fptSam->getHeadPosX()<< endl;
                     }
 
                     else if (fptSam->getHeadPosY() > 95){
-                        soundModus->kopfrechts();
+
                         cout<<"HeadPosY 95: " <<fptSam->getHeadPosY()<< endl;
                     }
 
                      else if (fptSam->getHeadPosY() < 5){
-                        soundModus->kopflinks();
+
                         cout<<"HeadPosY 5: " <<fptSam->getHeadPosY() << endl;
                     }
 
                     else if (fptSam->getMouthOpen() > 95){
-                        soundModus->mundauf();
+
                         cout<<"MundAuf 95: " <<fptSam->getMouthOpen() << endl;
                     }
 
                     else if (fptSam->getRotationHead() > 95){
-                        soundModus->kopfrotation();
+
                         cout<<"HeadRotation95: " <<fptSam->getRotationHead()<< endl;
-                    }
+                    }*/
 
                 }
             }

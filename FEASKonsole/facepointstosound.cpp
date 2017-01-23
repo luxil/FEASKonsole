@@ -14,7 +14,7 @@ FacePointsToSound::FacePointsToSound():
     //Neue Variablen;
     double mouthOpen=0;
     double browR=0;
-    double browL=0;
+    double browL=10;
     double headpositionY=0;
     double headpositionX=0;
     double rotationHead=0;
@@ -28,23 +28,13 @@ FacePointsToSound::FacePointsToSound():
 
 void FacePointsToSound::playSound(){
 
-    bool active=true;
-    QTime delay;
+
+
 
     //Berechnung der Parameter!!!!!
     Parameterberechnung();
 
-/*
-if(active){
-    delay=QTime::currentTime().addMSecs(500);
-    cout<<"Trigger"<<endl;
-    active=false;
-}
-if(QTime::currentTime()>delay){
-    cout<<"activate!!!"<<endl;
-    active=true;
-    cout<<"activate!!!"<<endl;
-}*/
+
 
     //Ausgabe
     cout <<" X: "<<clampParam(headpositionX);

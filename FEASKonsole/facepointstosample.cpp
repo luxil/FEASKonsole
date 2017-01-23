@@ -1,6 +1,6 @@
 #include "facepointstosample.h"
 #include <dlib/opencv.h>
-#include <QTime>
+
 #include <dlib/gui_widgets.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <dlib/image_processing.h>
@@ -14,6 +14,11 @@ facepointstosample::facepointstosample():
     ,soundModus(new SoundModus)
     ,audioClip(0)
     ,prevClip(0)
+    ,ratioBrowLow(0.14)
+    ,ratioBrowHigh(0.26)
+    ,ratioMouth(0.18)
+    ,ratioHeadRotation(0.15)
+
 {
 
 }
@@ -29,9 +34,9 @@ void facepointstosample::playSound(){
         audioClip=2;
     }
      if(clampParam(mouthOpen)>85){
-        cout<<"MouthOpen"<<endl;
+        //cout<<"MouthOpen"<<endl;
         audioClip=1;
-        soundModus->mundauf();
+
     }
     // if(clampParam(mouthOpen)<10)
      //   cout<<"MouthClosed"<<endl;
@@ -58,6 +63,7 @@ void facepointstosample::playSound(){
        switch (audioClip){
             case 1:
                 cout<<"mouthOpen"<<endl;
+                soundModus->mundauf();
                 prevClip=1;
                 break;
             case 2:

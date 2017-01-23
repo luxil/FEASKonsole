@@ -6,7 +6,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <dlib/image_processing.h>
 #include "sendoscmsg.h"
-#include <QTime>
+
 #include "soundmodus.h"
 
 class facepointstosample
