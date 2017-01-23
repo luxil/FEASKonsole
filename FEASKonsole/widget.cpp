@@ -19,6 +19,8 @@ Widget::~Widget()
 
 void Widget::on_TonModus_clicked()
 {
+    faceDetAndFPL.programmModus = 0;
+    sendoscmsg->send("/DSP", 0);
     faceDetAndFPL.findFacesAndPoints();
 }
 
@@ -70,12 +72,9 @@ void Widget::on_param2_slider_valueChanged(int value)
 
 void Widget::on_TonModus_2_clicked()
 {
+    faceDetAndFPL.programmModus = 1;
     sendoscmsg->send("/DSP", 1);
     faceDetAndFPL.findFacesAndPoints();
 
 }
 
-void Widget::on_TonModus_3_clicked()
-{
-    sendoscmsg->send("/Kopfdrehung", 80);
-}

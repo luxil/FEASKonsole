@@ -7,6 +7,8 @@
 #include "facedetandfpl.h"
 #include "win.h"
 #include "facepointstosample.h"
+#include "soundmodus.h"
+#include "facepointstosound.h"
 
 #include <dlib/image_processing/frontal_face_detector.h>
 #include <opencv2/highgui/highgui.hpp>
@@ -17,7 +19,9 @@ using namespace dlib;
 
 FaceDetAndFPL::FaceDetAndFPL():
     sendoscmsg(new Sendoscmsg)
-    ,fpts(new facepointstosample)
+    ,fpts(new FacePointsToSound)
+    ,soundModus(new SoundModus)
+    ,fptSam(new facepointstosample)
 {    
 }
 
@@ -27,8 +31,7 @@ void FaceDetAndFPL::findFacesAndPoints(){
         string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
          //string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
         cv::VideoCapture cap(0);
-        if (!cap.isOpened())
-        {
+        if (!cap.isOpened()){
             cerr << "Unable to connect to camera" << endl;
             //return 1;
         }
@@ -68,19 +71,62 @@ void FaceDetAndFPL::findFacesAndPoints(){
                 sendFacePoints(shapes);
                 winClass.drawImage(cimg);
                 winClass.drawFacePoints();
-                fpts->cap = cap;
-                fpts->playSound();
+
+                if(programmModus=1){
+                    fpts->cap = cap;
+                    fpts->playSound();
+
+                } else if(programmModus=0){
+                    fptSam->cap =cap;
+                    fptSam->playSound();
+
+
+                    if(fptSam->getBrowL() > 90){
+                        soundModus->braueLinks();
+                        cout<<"braue Links: " <<fptSam->getBrowL() << endl;
+                    }
+
+                    else if (fptSam->getBrowR() > 90){
+                        soundModus->braueRechts();
+                        cout<<"braue Rechts: " <<fptSam->getBrowR() << endl;
+                    }
+
+                    else if (fptSam->getHeadPosX() > 95){
+                        soundModus->kopfoben();
+                        cout<<"HeadPosX 95: " <<fptSam->getHeadPosX() << endl;
+                    }
+
+                    else if (fptSam->getHeadPosX() < 5){
+                        soundModus->kopfunten();
+                        cout<<"HeadPosX 5: " <<fptSam->getHeadPosX()<< endl;
+                    }
+
+                    else if (fptSam->getHeadPosY() > 95){
+                        soundModus->kopfrechts();
+                        cout<<"HeadPosY 95: " <<fptSam->getHeadPosY()<< endl;
+                    }
+
+                     else if (fptSam->getHeadPosY() < 5){
+                        soundModus->kopflinks();
+                        cout<<"HeadPosY 5: " <<fptSam->getHeadPosY() << endl;
+                    }
+
+                    else if (fptSam->getMouthOpen() > 95){
+                        soundModus->mundauf();
+                        cout<<"MundAuf 95: " <<fptSam->getMouthOpen() << endl;
+                    }
+
+                    else if (fptSam->getRotationHead() > 95){
+                        soundModus->kopfrotation();
+                        cout<<"HeadRotation95: " <<fptSam->getRotationHead()<< endl;
+                    }
+
+                }
             }
         }
     }
-    catch(serialization_error& e)
-    {
-        cout << endl << e.what() << endl;
-    }
-    catch(exception& e)
-    {
-        cout << e.what() << endl;
-    }
+    catch(serialization_error& e) {cout << endl << e.what() << endl;}
+    catch(exception& e){cout << e.what() << endl;}
 }
 
 
@@ -92,4 +138,5 @@ FaceDetAndFPL::~FaceDetAndFPL()
 void FaceDetAndFPL::sendFacePoints(std::vector<full_object_detection> shapes){
     winClass.shapes = shapes;
     fpts->shapes = shapes;
+    fptSam->shapes = shapes;
 }

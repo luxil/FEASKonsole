@@ -45,12 +45,9 @@ private slots:
 
     void on_TonModus_2_clicked();
 
-    void on_TonModus_3_clicked();
-
 private:
     Ui::Widget *ui;
     FaceDetAndFPL faceDetAndFPL;
-    SoundModus *soundModus;
     Sendoscmsg *sendoscmsg;
 };
 

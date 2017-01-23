@@ -6,51 +6,59 @@ SoundModus::SoundModus()
 }
 
 
-void SoundModus::augenauf()
+void SoundModus::braueLinks()
 {
-    mediaPlayer.openMusicFile("adler.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("adler.mp3");
+    mediaPlayer->play();
+    Sleep(3000);
 }
 
-void SoundModus::augenzu()
+void SoundModus::braueRechts()
 {
-    mediaPlayer.openMusicFile("auto_hupe.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("auto_hupe.mp3");
+    mediaPlayer->play();
+    Sleep(1000);
 }
 
 void SoundModus::mundauf()
 {
-    mediaPlayer.openMusicFile("elefant.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("elefant.mp3");
+    mediaPlayer->play();
+    Sleep(2000);
 }
 
-void SoundModus::mundzu()
+void SoundModus::kopfrotation()
 {
-    mediaPlayer.openMusicFile("ente.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("ente.mp3");
+    mediaPlayer->play();
+    Sleep(5000);
 }
 
-void SoundModus::kopfnah()
+void SoundModus::kopfoben()
 {
-    mediaPlayer.openMusicFile("blubbern.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("blubbern.mp3");
+    mediaPlayer->play();
+    Sleep(3000);
 }
 
-void SoundModus::kopffern()
+void SoundModus::kopfunten()
 {
-    mediaPlayer.openMusicFile("ozean3.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("ozean3.mp3");
+    mediaPlayer->play();
+    Sleep(9000);
 }
 
 void SoundModus::kopflinks()
 {
-    mediaPlayer.openMusicFile("muecke.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("muecke.mp3");
+    mediaPlayer->play();
+    Sleep(4000);
 }
 
 void SoundModus::kopfrechts()
 {
-    mediaPlayer.openMusicFile("geschuetz.mp3");
-    mediaPlayer.play();
+    mediaPlayer->openMusicFile("geschuetz.mp3");
+    mediaPlayer->play();
+    Sleep(4000);
 }
 
