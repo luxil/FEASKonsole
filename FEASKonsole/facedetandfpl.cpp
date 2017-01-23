@@ -14,6 +14,10 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <dlib/image_processing.h>
 
+#include "opencv2/imgproc/imgproc.hpp" //für resize cv
+#include "opencv2/opencv.hpp"           //für resize cv
+#include <dlib/image_transforms.h>
+
 using namespace std;
 using namespace dlib;
 
@@ -54,6 +58,22 @@ void FaceDetAndFPL::findFacesAndPoints(){
             // to reallocate the memory which stores the image as that will make cimg
             // contain dangling pointers.  This basically means you shouldn't modify temp
             // while using cimg.
+            /*
+            int tbheight = 0;
+            RECT rectWork = { 0 };
+            if (SystemParametersInfo(SPI_GETWORKAREA, 0, &rectWork, 0))
+            {
+                    int scrheight = GetSystemMetrics(SM_CYSCREEN);
+                    tbheight = scrheight - (rectWork.bottom - rectWork.top);
+            }
+            cout<<"height: "<<tbheight<<endl;*/
+
+            // Resize the image
+            //cout<<"height: "<<temp.cols*5/4 << " " <<temp.rows*5/4<<endl;
+            cv::Size size(800, 600);//the dst image size,e.g.100x100
+            cv::Mat dstImg;//dst image
+            cv::resize(temp,dstImg,size);//resize image
+            cv::flip(dstImg, temp, 1);
             cv_image<bgr_pixel> cimg(temp);
 
             // Detect faces
@@ -69,6 +89,8 @@ void FaceDetAndFPL::findFacesAndPoints(){
                 //cout << "faces.size()" << faces.size() <<endl;
 
             }
+
+
             // Display it all on the screen
             if(faces.size() >0){
                 sendFacePoints(shapes);

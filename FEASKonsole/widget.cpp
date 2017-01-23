@@ -9,7 +9,6 @@ Widget::Widget(QWidget *parent) :
     QTabWidget(parent),
     ui(new Ui::Widget),
     sendoscmsg(new Sendoscmsg)
-    //faceDetAndFPL(new FaceDetAndFPL)
 {
     ui->setupUi(this);
 }

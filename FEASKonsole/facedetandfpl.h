@@ -13,7 +13,6 @@ class FaceDetAndFPL
 {
 public:
     Win *winClass;
-
     FaceDetAndFPL();
     ~FaceDetAndFPL();
     void findFacesAndPoints();
