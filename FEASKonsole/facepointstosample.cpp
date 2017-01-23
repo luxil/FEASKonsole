@@ -11,11 +11,11 @@ using namespace std;
 
 facepointstosample::facepointstosample():
     sendoscmsg(new Sendoscmsg)
-
 {
 }
 int audioClip=0;
 int prevClip=0;
+
 
 void facepointstosample::playSound(){
 
@@ -32,9 +32,6 @@ void facepointstosample::playSound(){
     double ratioMouth=0.18;
     double ratioHeadRotation=0.15;
     double headdistance;
-
-
-
 
 
     //Berechnung der Parameter!!!!!
@@ -145,11 +142,6 @@ break;
     cout <<endl;
 
     */
-
-
-
-
-
 
 
 }
