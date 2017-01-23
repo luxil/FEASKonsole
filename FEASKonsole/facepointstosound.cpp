@@ -9,20 +9,19 @@ using namespace std;
 
 
 FacePointsToSound::FacePointsToSound():
-    sendoscmsg(new Sendoscmsg)
-{
-    //Neue Variablen;
-    double mouthOpen=0;
-    double browR=0;
-    double browL=10;
-    double headpositionY=0;
-    double headpositionX=0;
-    double rotationHead=0;
+    sendoscmsg(new Sendoscmsg),
 
-    double ratioBrowLow=0.14;
-    double ratioBrowHigh=0.26;
-    double ratioMouth=0.18;
-    double ratioHeadRotation=0.15;
+mouthOpen(0),
+browR(0),
+browL(0),
+headpositionY(0),
+headpositionX(0),
+rotationHead(0),
+ratioBrowLow(0.14),
+ratioBrowHigh(0.26),
+ratioMouth(0.18),
+ratioHeadRotation(0.15)
+{ 
 }
 
 
