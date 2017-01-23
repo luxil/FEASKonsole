@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     osc/OscOutboundPacketStream.cpp \
     osc/OscTypes.cpp \
     test.cpp \
-    facepointstosound.cpp
+    facepointstosound.cpp \
+    facepointstosample.cpp
 
 HEADERS += \
         facedetandfpl.h \
@@ -41,7 +42,8 @@ HEADERS += \
     osc/OscHostEndianness.h \
     osc/OscOutboundPacketStream.h \
     osc/OscTypes.h \
-    facepointstosound.h
+    facepointstosound.h \
+    facepointstosample.h
 
 FORMS += \
         widget.ui

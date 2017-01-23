@@ -1,5 +1,5 @@
-#ifndef FACEPOINTSTOSOUND_H
-#define FACEPOINTSTOSOUND_H
+#ifndef FACEPOINTSTOSAMPLE_H
+#define FACEPOINTSTOSAMPLE_H
 
 #include <dlib/opencv.h>
 #include <dlib/gui_widgets.h>
@@ -7,17 +7,21 @@
 #include <dlib/image_processing.h>
 #include "sendoscmsg.h"
 #include <QTime>
+#include "soundmodus.h"
 
-class FacePointsToSound
+class facepointstosample
 {
 public:
-    FacePointsToSound();
-    ~FacePointsToSound();
+    facepointstosample();
+    ~facepointstosample();
+
     std::vector<dlib::full_object_detection> shapes;
     void playSound();
     double clampParam(double percent);
     cv::VideoCapture cap;
     Sendoscmsg *sendoscmsg;
+
+
 };
 
-#endif // FACEPOINTSTOSOUND_H
+#endif // FACEPOINTSTOSAMPLE_H

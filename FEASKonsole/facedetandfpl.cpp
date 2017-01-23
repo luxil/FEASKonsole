@@ -6,7 +6,7 @@
 
 #include "facedetandfpl.h"
 #include "win.h"
-#include "facepointstosound.h"
+#include "facepointstosample.h"
 
 #include <dlib/image_processing/frontal_face_detector.h>
 #include <opencv2/highgui/highgui.hpp>
@@ -17,7 +17,7 @@ using namespace dlib;
 
 FaceDetAndFPL::FaceDetAndFPL():
     sendoscmsg(new Sendoscmsg)
-    ,fpts(new FacePointsToSound)
+    ,fpts(new facepointstosample)
 {    
 }
 
@@ -25,6 +25,7 @@ void FaceDetAndFPL::findFacesAndPoints(){
     try
     {
         string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
+         //string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
         cv::VideoCapture cap(0);
         if (!cap.isOpened())
         {
@@ -59,7 +60,7 @@ void FaceDetAndFPL::findFacesAndPoints(){
                 //cout << "pixel position of first part:  " << shape.part(0) << endl;
                 shapes.push_back(shape);
                 //cout << "shapes" << shapes[0].part(0)(0) <<endl;
-                cout << "faces.size()" << faces.size() <<endl;
+                //cout << "faces.size()" << faces.size() <<endl;
 
             }
             // Display it all on the screen
