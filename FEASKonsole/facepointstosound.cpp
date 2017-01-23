@@ -1,5 +1,6 @@
 #include "facepointstosound.h"
 #include <dlib/opencv.h>
+#include <QTime>
 #include <dlib/gui_widgets.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <dlib/image_processing.h>
@@ -27,6 +28,8 @@ void FacePointsToSound::playSound(){
     double ratioBrowHigh=0.26;
     double ratioMouth=0.18;
     double ratioHeadRotation=0.15;
+    bool active=true;
+    QTime delay;
 
 
     //Berechnung der Parameter!!!!!
@@ -37,8 +40,24 @@ void FacePointsToSound::playSound(){
     headpositionX=abs((double)shapes[0].part(30).x()-(cap.get(CV_CAP_PROP_FRAME_WIDTH)/2));
     rotationHead=abs((double)shapes[0].part(36).y()-shapes[0].part(45).y())*100/((shapes[0].part(0)-shapes[0].part(16)).length()*ratioHeadRotation);
 
+
+
+
+if(active){
+
+
+delay=QTime::currentTime().addMSecs(500);
+cout<<"Trigger"<<endl;
+active=false;
+}
+if(QTime::currentTime()>delay){
+cout<<"activate!!!"<<endl;
+active=true;
+cout<<"activate!!!"<<endl;
+}
+
     //Ausgabe
-    cout <<" X: "<<clampParam(headpositionX);
+    /*cout <<" X: "<<clampParam(headpositionX);
     cout <<" Y: "<<clampParam(headpositionY);//
     cout <<" Kopfneigung: "<<clampParam(rotationHead);//
     cout <<" BraueLinks: "<<clampParam(browL);//
@@ -46,7 +65,14 @@ void FacePointsToSound::playSound(){
     cout <<" Mund: "<<clampParam(mouthOpen);//
     cout <<endl;
 
-        sendoscmsg->send("/MundH", clampParam(mouthOpen));
+    */
+
+
+
+
+
+
+      /*  sendoscmsg->send("/MundH", clampParam(mouthOpen));
         //sendoscmsg->send("/MundB", value);
         sendoscmsg->send("/AugenbraueL", clampParam(browL));
         sendoscmsg->send("/AugenbraueR", clampParam(browR));
@@ -54,7 +80,7 @@ void FacePointsToSound::playSound(){
         //sendoscmsg->send("/Kopfskalierung", value);
         sendoscmsg->send("/AugeL", clampParam(headpositionX));
         sendoscmsg->send("/AugeR", clampParam(headpositionY));
-
+*/
 }
 
 
