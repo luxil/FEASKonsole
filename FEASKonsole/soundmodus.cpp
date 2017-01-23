@@ -1,10 +1,11 @@
 #include "soundmodus.h"
+#include "mymediaplayer.h"
 
-SoundModus::SoundModus()
+SoundModus::SoundModus():
+    mediaPlayer(new MyMediaPlayer)
 {
 
 }
-
 
 void SoundModus::braueLinks()
 {

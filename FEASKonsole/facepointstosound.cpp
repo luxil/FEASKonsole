@@ -28,9 +28,6 @@ FacePointsToSound::FacePointsToSound():
 
 void FacePointsToSound::playSound(){
 
-
-
-
     //Berechnung der Parameter!!!!!
     Parameterberechnung();
 

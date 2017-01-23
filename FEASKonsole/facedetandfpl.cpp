@@ -28,8 +28,8 @@ FaceDetAndFPL::FaceDetAndFPL():
 void FaceDetAndFPL::findFacesAndPoints(){
     try
     {
-        //string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
-         string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
+        string pathToSPDat = "../shape_predictor_68_face_landmarks.dat";
+        //string pathToSPDat = "C:/Users/Muffinman/Desktop/FEASKonsole/shape_predictor_68_face_landmarks.dat";
         cv::VideoCapture cap(0);
         if (!cap.isOpened()){
             cerr << "Unable to connect to camera" << endl;

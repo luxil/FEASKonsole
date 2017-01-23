@@ -3,9 +3,10 @@
 
 const QString path = "../Sounds/";
 
-MyMediaPlayer::MyMediaPlayer()
+MyMediaPlayer::MyMediaPlayer():
+    mMediaPlayer(new QMediaPlayer)
 {
-    mMediaPlayer = new QMediaPlayer(mMediaPlayer);
+    //mMediaPlayer = new QMediaPlayer(mMediaPlayer);
 }
 
 MyMediaPlayer::~MyMediaPlayer(){
