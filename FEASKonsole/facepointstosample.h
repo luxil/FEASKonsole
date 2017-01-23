@@ -1,6 +1,6 @@
 #ifndef FACEPOINTSTOSAMPLE_H
 #define FACEPOINTSTOSAMPLE_H
-
+#include "mymediaplayer.h"
 #include <dlib/opencv.h>
 #include <dlib/gui_widgets.h>
 #include <opencv2/highgui/highgui.hpp>

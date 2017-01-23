@@ -6,7 +6,7 @@
 #include <dlib/image_processing.h>
 #include "sendoscmsg.h"
 #include "soundmodus.h"
-
+#include "mymediaplayer.h"
 using namespace std;
 
 facepointstosample::facepointstosample():
@@ -15,7 +15,7 @@ facepointstosample::facepointstosample():
     ,audioClip(0)
     ,prevClip(0)
     ,ratioBrowLow(0.14)
-    ,ratioBrowHigh(0.26)
+    ,ratioBrowHigh(0.22)
     ,ratioMouth(0.18)
     ,ratioHeadRotation(0.15)
 
@@ -41,11 +41,11 @@ void facepointstosample::playSound(){
     // if(clampParam(mouthOpen)<10)
      //   cout<<"MouthClosed"<<endl;
 
-     if(headpositionX<-60){
+     if(headpositionX<-120){
         //cout<<"HeadLeft"<<endl;
         audioClip=5;
      }
-     if(headpositionX>60){
+     if(headpositionX>120){
         //cout<<"HeadRight"<<endl;
         audioClip=6;
      }
@@ -58,40 +58,55 @@ void facepointstosample::playSound(){
         //cout<<"HeadTilted"<<endl;
         audioClip=8;
    }
+   if(headdistance>37){
+        //cout<<"HeadNear"<<endl;
+        audioClip=3;
+   }
+   if(headdistance<24){
+       //cout<<"HeadFar"<<endl;
+       audioClip=4;
+  }
 
     if(audioClip!=prevClip){
        switch (audioClip){
             case 1:
                 cout<<"mouthOpen"<<endl;
-                soundModus->mundauf();
+                soundModus->braueLinks();
                 prevClip=1;
                 break;
             case 2:
                 cout<<"browHigh"<<endl;
+                soundModus->braueRechts();
                 prevClip=2;
                 break;
             case 3:
                 cout<<"headNear"<<endl;
+                soundModus->mundauf();
                 prevClip=3;
                 break;
             case 4:
                 cout<<"headFar"<<endl;
+                soundModus->kopfrotation();
                 prevClip=4;
                 break;
             case 5:
                 cout<<"headRight"<<endl;
+                soundModus->kopfoben();
                 prevClip=5;
                 break;
             case 6:
                 cout<<"headleft"<<endl;
+                soundModus->kopfunten();
                 prevClip=6;
                 break;
             case 7:
                 cout<<"tiltRight"<<endl;
+                soundModus->kopflinks();
                 prevClip=7;
                 break;
             case 8:
                 cout<<"tiltLeft"<<endl;
+                soundModus->kopfrechts();
                 prevClip=8;
                 break;
             default:
