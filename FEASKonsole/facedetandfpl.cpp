@@ -70,7 +70,7 @@ void FaceDetAndFPL::findFacesAndPoints(){
 
             // Resize the image
             //cout<<"height: "<<temp.cols*5/4 << " " <<temp.rows*5/4<<endl;
-            cv::Size size(800, 600);//the dst image size,e.g.100x100
+            cv::Size size(850, 638);//the dst image size,e.g.100x100
             cv::Mat dstImg;//dst image
             cv::resize(temp,dstImg,size);//resize image
             cv::flip(dstImg, temp, 1);

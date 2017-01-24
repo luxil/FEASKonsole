@@ -58,7 +58,7 @@ void SoundModus::kopflinks()
 
 void SoundModus::kopfrechts()
 {
-    mediaPlayer->openMusicFile("geschuetz.mp3");
+    mediaPlayer->openMusicFile("geklirre-kurz.mp3");
     mediaPlayer->play();
     //Sleep(4000);
 }
