@@ -2589,7 +2589,7 @@ empty 0 -8 0 8 -211878 -220534 -262144 0 1;
 #X obj 100 500 cnv 15 350 400 empty empty SEQUENZER 6 15 1 20 -41611
 -220534 0;
 #X obj 108 577 hradio 19 1 0 16 trigger_radio_s trigger_radio empty
-0 -8 0 10 -1 -62416 -1 6;
+0 -8 0 10 -1 -62416 -1 0;
 #X obj 108 600 vradio 19 1 1 14 note0_s note0_r empty 0 -8 0 10 -62416
 -262144 -1 4;
 #X obj 127 600 vradio 19 1 1 14 note1_s note1_r empty 0 -8 0 10 -62416
@@ -2903,125 +2903,89 @@ empty 0 -8 0 8 -211878 -220534 -262144 0 1;
 #X restore 354 371 pd oscillator1;
 #X obj 709 -183 cnv 15 210 956 empty empty empty 20 12 0 14 -220534
 -66577 0;
-#N canvas 648 7 1141 964 oscillator1 0;
+#N canvas 493 76 1247 964 oscillator1 0;
 #X obj 100 500 cnv 15 206 952 empty empty OpenSoundControl 6 15 1 20
 -62416 -262144 0;
-#X obj 108 557 hradio 17 1 1 9 OSC1_FREQ_ASSIGN CLEAR_CONTROLS OSC1
+#X obj 108 557 hradio 17 1 1 7 OSC1_FREQ_ASSIGN CLEAR_CONTROLS OSC1
 0 -6 1 10 -62416 -262144 -220534 0;
-#X text 107 1397 1 Augenbraue L;
 #X text 145 1377 2;
 #X text 163 1377 3;
 #X text 180 1377 4;
 #X text 197 1377 5;
 #X text 214 1377 6;
-#X text 232 1377 7;
-#X text 249 1377 8;
 #X text 106 1377 OFF;
-#X text 262 557 Freq.;
-#X obj 108 574 hradio 17 1 1 9 OSC1_WAVEF_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 574 hradio 17 1 1 7 OSC1_WAVEF_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
 #X text 130 1377 1;
-#X obj 108 615 hradio 17 1 1 9 OSC2_PITCH_ASSIGN CLEAR_CONTROLS OSC2
+#X obj 108 615 hradio 17 1 1 7 OSC2_PITCH_ASSIGN CLEAR_CONTROLS OSC2
 0 -6 1 10 -62416 -262144 -220534 0;
-#X obj 108 673 hradio 17 1 1 9 FILTER_FREQ_ASSIGN CLEAR_CONTROLS Filter
+#X obj 108 673 hradio 17 1 1 7 FILTER_FREQ_ASSIGN CLEAR_CONTROLS Filter
 0 -6 1 10 -62416 -262144 -220534 6;
-#X obj 108 731 hradio 17 1 1 9 MOD_LFO_ASSIGN CLEAR_CONTROLS Modulation
+#X obj 108 731 hradio 17 1 1 7 MOD_LFO_ASSIGN CLEAR_CONTROLS Modulation
 0 -6 1 10 -62416 -262144 -220534 3;
-#X text 262 574 Wavef.;
-#X text 262 615 Pitch;
-#X text 262 632 Wavef.;
-#X text 263 690 Res.;
-#X text 262 673 Freq.;
-#X text 262 731 LFO-R.;
-#X text 262 748 Wavef.;
-#X text 262 765 1Ampl.;
-#X text 262 782 1Pitch;
-#X text 262 799 2Ampl.;
-#X text 262 816 2Pitch;
-#X obj 108 966 hradio 17 1 1 9 MIXER_OSC1_ASSIGN CLEAR_CONTROLS Mixer
+#X text 233 615 Pitch;
+#X text 233 782 1Pitch;
+#X text 233 816 2Pitch;
+#X obj 108 966 hradio 17 1 1 7 MIXER_OSC1_ASSIGN CLEAR_CONTROLS Mixer
 0 -6 1 10 -62416 -262144 -220534 0;
-#X text 262 966 OSC1;
-#X text 262 983 OSC2;
-#X text 262 1000 SUBOSC;
-#X text 262 1017 NOISE;
-#X text 262 1034 MASTER;
-#X obj 108 1075 hradio 17 1 1 9 ENV1_AMP1_ASSIGN CLEAR_CONTROLS ENV1
-0 -6 1 10 -62416 -262144 -220534 7;
-#X text 262 1075 1Ampl.;
-#X text 262 1092 1Freq.;
-#X text 262 1109 2Ampl.;
-#X text 262 1126 2Freq.;
-#X obj 108 1184 hradio 17 1 1 9 ENV2_AMP1_ASSIGN CLEAR_CONTROLS ENV2
+#X text 233 966 OSC1;
+#X text 233 983 OSC2;
+#X text 233 1000 SUBOSC;
+#X text 233 1017 NOISE;
+#X text 233 1034 MASTER;
+#X obj 108 1075 hradio 17 1 1 7 ENV1_AMP1_ASSIGN CLEAR_CONTROLS ENV1
+0 -6 1 10 -62416 -262144 -220534 6;
+#X obj 108 1184 hradio 17 1 1 7 ENV2_AMP1_ASSIGN CLEAR_CONTROLS ENV2
 0 -6 1 10 -62416 -262144 -220534 0;
-#X text 262 1184 1Ampl.;
-#X text 262 1201 1Freq.;
-#X text 262 1218 2Ampl.;
-#X text 262 1235 2Freq.;
-#X obj 108 1293 hradio 17 1 1 9 ENV3_AMP1_ASSIGN CLEAR_CONTROLS ENV3
+#X obj 108 1293 hradio 17 1 1 7 ENV3_AMP1_ASSIGN CLEAR_CONTROLS ENV3
 0 -6 1 10 -62416 -262144 -220534 0;
-#X text 262 1293 1Ampl.;
-#X text 262 1310 1Freq.;
-#X text 262 1327 2Ampl.;
-#X text 262 1344 2Freq.;
-#X obj 108 891 hradio 17 1 1 9 REVERB_WET_ASSIGN CLEAR_CONTROLS Reverb
+#X obj 108 891 hradio 17 1 1 7 REVERB_WET_ASSIGN CLEAR_CONTROLS Reverb
 0 -6 1 10 -62416 -262144 -220534 1;
-#X text 262 891 WET;
-#X text 262 908 DRY;
-#X text 262 925 SIZE;
-#X text 107 1410 2 Augenbraue R;
-#X text 107 1423 3 Mund H;
-#X text 107 1435 4 Mund B;
-#X text 213 1409 6 Kopf Skal.;
-#X text 213 1396 5 Kopf Dreh.;
-#X text 213 1422 7 ...;
-#X text 213 1434 8 ...;
+#X text 233 891 WET;
+#X text 233 908 DRY;
+#X text 233 925 SIZE;
 #X obj 245 535 bng 15 250 50 0 CLEAR_BANG_s CLEAR_BANG_r CLEAR_ALL
 -62 7 1 10 -62416 -220534 -220534;
 #X obj 101 417 r CLEAR_BANG_s;
 #X obj 101 477 s CLEAR_CONTROLS;
 #X msg 101 446 0;
-#X text 262 1143 FFreq.;
-#X text 262 1252 FFreq.;
-#X text 262 1361 FFreq.;
-#X text 262 833 FFreq.;
-#X text 262 850 FRes.;
-#X obj 108 632 hradio 17 1 1 9 OSC2_WAVEF_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 632 hradio 17 1 1 7 OSC2_WAVEF_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 690 hradio 17 1 1 9 FILTER_RES_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 690 hradio 17 1 1 7 FILTER_RES_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 5;
-#X obj 108 748 hradio 17 1 1 9 MOD_WAVEF_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 748 hradio 17 1 1 7 MOD_WAVEF_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 765 hradio 17 1 1 9 MOD_AMP1_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 765 hradio 17 1 1 7 MOD_AMP1_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 782 hradio 17 1 1 9 MOD_PITCH1_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 782 hradio 17 1 1 7 MOD_PITCH1_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 799 hradio 17 1 1 9 MOD_AMP2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 799 hradio 17 1 1 7 MOD_AMP2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 816 hradio 17 1 1 9 MOD_PITCH2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 816 hradio 17 1 1 7 MOD_PITCH2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 833 hradio 17 1 1 9 MOD_FFREQ_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 833 hradio 17 1 1 7 MOD_FFREQ_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 4;
-#X obj 108 850 hradio 17 1 1 9 MOD_FRES_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 850 hradio 17 1 1 7 MOD_FRES_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 908 hradio 17 1 1 9 REVERB_DRY_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 908 hradio 17 1 1 7 REVERB_DRY_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 925 hradio 17 1 1 9 REVERB_SIZE_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 925 hradio 17 1 1 7 REVERB_SIZE_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 2;
-#X obj 108 983 hradio 17 1 1 9 MIXER_OSC2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 983 hradio 17 1 1 7 MIXER_OSC2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1000 hradio 17 1 1 9 MIXER_SUBOSC_ASSIGN CLEAR_CONTROLS
+#X obj 108 1000 hradio 17 1 1 7 MIXER_SUBOSC_ASSIGN CLEAR_CONTROLS
 empty 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1017 hradio 17 1 1 9 MIXER_NOISE_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1017 hradio 17 1 1 7 MIXER_NOISE_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1034 hradio 17 1 1 9 MIXER_MASTER_ASSIGN CLEAR_CONTROLS
+#X obj 108 1034 hradio 17 1 1 7 MIXER_MASTER_ASSIGN CLEAR_CONTROLS
 empty 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1092 hradio 17 1 1 9 ENV1_FREQ1_ASSIGN CLEAR_CONTROLS empty
-0 -6 1 10 -62416 -262144 -262144 8;
-#X obj 108 1109 hradio 17 1 1 9 ENV1_AMP2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1092 hradio 17 1 1 7 ENV1_FREQ1_ASSIGN CLEAR_CONTROLS empty
+0 -6 1 10 -62416 -262144 -262144 6;
+#X obj 108 1109 hradio 17 1 1 7 ENV1_AMP2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1126 hradio 17 1 1 9 ENV1_FREQ2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1126 hradio 17 1 1 7 ENV1_FREQ2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1143 hradio 17 1 1 9 ENV1_FFREQ_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1143 hradio 17 1 1 7 ENV1_FFREQ_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
 #X floatatom 368 -43 5 0 0 0 - - -;
 #X floatatom 470 -39 5 0 0 0 - - -;
@@ -3183,13 +3147,13 @@ empty 0 -6 1 10 -62416 -262144 -262144 0;
 #X connect 68 0 67 0;
 #X restore 442 235 pd OSC1_OSC2_FILTER_subpatch;
 #X obj 24 130 s no1;
-#X obj 137 130 s no2;
-#X obj 288 129 s no3;
-#X obj 440 129 s no4;
-#X obj 588 128 s no5;
-#X obj 754 126 s no6;
-#X obj 872 127 s no7;
-#X obj 989 127 s no8;
+#X obj 288 130 s no2;
+#X obj 440 129 s no3;
+#X obj 588 127 s no4;
+#X obj 872 129 s no5;
+#X obj 989 129 s no6;
+#X obj 137 149 s no7;
+#X obj 754 146 s no8;
 #N canvas 32 5 601 998 MODULATION_subpatch 0;
 #X obj -3 187 mux 0 1 2 3 4 5 6 7 8;
 #X obj 10 28 r no1;
@@ -3855,54 +3819,86 @@ empty 0 -6 1 10 -62416 -262144 -262144 0;
 #X connect 51 0 18 9;
 #X connect 53 0 36 9;
 #X restore 446 462 pd ENV3_subpatch;
-#X obj 108 1201 hradio 17 1 1 9 ENV2_FREQ1_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1201 hradio 17 1 1 7 ENV2_FREQ1_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1218 hradio 17 1 1 9 ENV2_AMP2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1218 hradio 17 1 1 7 ENV2_AMP2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1235 hradio 17 1 1 9 ENV2_FREQ2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1235 hradio 17 1 1 7 ENV2_FREQ2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1252 hradio 17 1 1 9 ENV2_FFREQ_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1252 hradio 17 1 1 7 ENV2_FFREQ_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1310 hradio 17 1 1 9 ENV3_FREQ1_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1310 hradio 17 1 1 7 ENV3_FREQ1_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1327 hradio 17 1 1 9 ENV3_AMP2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1327 hradio 17 1 1 7 ENV3_AMP2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1344 hradio 17 1 1 9 ENV3_FREQ2_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1344 hradio 17 1 1 7 ENV3_FREQ2_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X obj 108 1361 hradio 17 1 1 9 ENV3_FFREQ_ASSIGN CLEAR_CONTROLS empty
+#X obj 108 1361 hradio 17 1 1 7 ENV3_FFREQ_ASSIGN CLEAR_CONTROLS empty
 0 -6 1 10 -62416 -262144 -262144 0;
-#X connect 61 0 63 0;
-#X connect 63 0 62 0;
-#X connect 90 0 88 0;
-#X connect 90 1 89 0;
-#X connect 91 0 92 0;
-#X connect 92 0 93 0;
-#X connect 94 0 95 0;
-#X connect 95 0 96 0;
-#X connect 95 0 97 0;
-#X connect 95 0 98 0;
-#X connect 95 0 103 0;
-#X connect 95 0 99 0;
-#X connect 95 0 100 0;
-#X connect 95 0 101 0;
-#X connect 95 0 102 0;
-#X connect 95 0 91 0;
-#X connect 96 0 104 0;
-#X connect 97 0 105 0;
-#X connect 98 0 106 0;
-#X connect 99 0 108 0;
-#X connect 100 0 109 0;
-#X connect 101 0 110 0;
-#X connect 102 0 111 0;
-#X connect 103 0 107 0;
-#X connect 104 0 113 0;
-#X connect 105 0 114 0;
-#X connect 106 0 115 0;
-#X connect 107 0 116 0;
-#X connect 108 0 117 0;
-#X connect 109 0 118 0;
-#X connect 110 0 119 0;
-#X connect 111 0 120 0;
+#X text 233 557 Frequenz;
+#X text 233 574 Waveform;
+#X text 233 632 Wavefform;
+#X text 233 673 Frequenz;
+#X text 234 690 Resonanz;
+#X text 233 731 LFO-Rate;
+#X text 233 748 Waveform;
+#X text 233 765 1Amplitude;
+#X text 233 799 2Amplitude;
+#X text 233 833 Filterfreq.;
+#X text 233 850 Filterres.;
+#X text 233 1075 1Amplitude;
+#X text 233 1092 1Frequenz;
+#X text 233 1109 2Amplitude;
+#X text 233 1126 2Frequenz;
+#X text 233 1143 Filterfreq.;
+#X text 233 1184 1Amplitude;
+#X text 233 1201 1Frequenz;
+#X text 233 1218 2Amplitude;
+#X text 233 1235 2Frequenz;
+#X text 233 1252 Filterfreq.;
+#X text 233 1293 1Amplitude;
+#X text 233 1310 1Frequenz;
+#X text 233 1327 2Amplitude;
+#X text 233 1344 2Frequenz;
+#X text 233 1361 Filterfreq.;
+#X text 107 1397 1 Mund;
+#X text 107 1410 2 Braue L;
+#X text 107 1423 3 Braue R;
+#X text 203 1395 4 Kopf-Rotation;
+#X text 203 1409 5 Kopf X Pos.;
+#X text 203 1422 6 Kopf Y Pos.;
+#X connect 30 0 32 0;
+#X connect 32 0 31 0;
+#X connect 54 0 52 0;
+#X connect 54 1 53 0;
+#X connect 55 0 56 0;
+#X connect 56 0 57 0;
+#X connect 58 0 59 0;
+#X connect 59 0 60 0;
+#X connect 59 0 61 0;
+#X connect 59 0 62 0;
+#X connect 59 0 67 0;
+#X connect 59 0 63 0;
+#X connect 59 0 64 0;
+#X connect 59 0 65 0;
+#X connect 59 0 66 0;
+#X connect 59 0 55 0;
+#X connect 60 0 68 0;
+#X connect 61 0 69 0;
+#X connect 62 0 70 0;
+#X connect 63 0 72 0;
+#X connect 64 0 73 0;
+#X connect 65 0 74 0;
+#X connect 66 0 75 0;
+#X connect 67 0 71 0;
+#X connect 68 0 77 0;
+#X connect 69 0 83 0;
+#X connect 70 0 78 0;
+#X connect 71 0 79 0;
+#X connect 72 0 80 0;
+#X connect 73 0 84 0;
+#X connect 74 0 81 0;
+#X connect 75 0 82 0;
 #X coords 0 -1 1 1 206 952 1 100 500;
 #X restore 711 -181 pd oscillator1;
 #X obj 278 -113 image gesichtsmusikant_schriftzug.gif;
