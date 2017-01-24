@@ -15,7 +15,7 @@ facepointstosample::facepointstosample():
     ,audioClip(0)
     ,prevClip(0)
     ,ratioBrowLow(0.14)
-    ,ratioBrowHigh(0.22)
+    ,ratioBrowHigh(0.28)
     ,ratioMouth(0.18)
     ,ratioHeadRotation(0.15)
 
@@ -62,7 +62,7 @@ void facepointstosample::playSound(){
         //cout<<"HeadNear"<<endl;
         audioClip=3;
    }
-   if(headdistance<24){
+   if(headdistance<18){
        //cout<<"HeadFar"<<endl;
        audioClip=4;
   }
