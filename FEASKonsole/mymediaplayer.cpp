@@ -6,6 +6,7 @@ const QString path = "../Sounds/";
 MyMediaPlayer::MyMediaPlayer():
     mMediaPlayer(new QMediaPlayer)
 {
+    //komischerweise funktioniert das so nicht...
     //mMediaPlayer = new QMediaPlayer(mMediaPlayer);
 }
 

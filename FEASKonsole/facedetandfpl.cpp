@@ -27,6 +27,10 @@ FaceDetAndFPL::FaceDetAndFPL():
     ,soundModus(new SoundModus)
     ,fptSam(new facepointstosample)
     ,winClass(new Win)
+  //Vorschlag: Man könnte überlegen, dass fpts oder ftpSam jeweils nur initialisiert werden sollen,
+  //wenn der entsprechende Modus dazu ausgewählt wurde. Dies könnte man zum Beispiel mithilfe
+  //von Polymorphismus lösen. Dies umzusetzen hat jedoch
+  //keine Prio und kann man vielleicht mal umsetzen, wenn die Zeit dafür da ist.
 {    
 }
 
@@ -48,6 +52,7 @@ void FaceDetAndFPL::findFacesAndPoints(){
         shape_predictor pose_model;
         deserialize(pathToSPDat) >> pose_model;
         // Grab and process frames until the main window is closed by the user.
+        cv::Size sizeForCam = getSizeForCameraWin();
         while(!winClass->is_closed()){
             // Grab a frame
             cv::Mat temp;
@@ -58,19 +63,11 @@ void FaceDetAndFPL::findFacesAndPoints(){
             // to reallocate the memory which stores the image as that will make cimg
             // contain dangling pointers.  This basically means you shouldn't modify temp
             // while using cimg.
-            /*
-            int tbheight = 0;
-            RECT rectWork = { 0 };
-            if (SystemParametersInfo(SPI_GETWORKAREA, 0, &rectWork, 0))
-            {
-                    int scrheight = GetSystemMetrics(SM_CYSCREEN);
-                    tbheight = scrheight - (rectWork.bottom - rectWork.top);
-            }
-            cout<<"height: "<<tbheight<<endl;*/
+
 
             // Resize the image
             //cout<<"height: "<<temp.cols*5/4 << " " <<temp.rows*5/4<<endl;
-            cv::Size size(850, 638);//the dst image size,e.g.100x100
+            cv::Size size(sizeForCam);//the dst image size,e.g.100x100
             cv::Mat dstImg;//dst image
             cv::resize(temp,dstImg,size);//resize image
             cv::flip(dstImg, temp, 1);
@@ -105,48 +102,6 @@ void FaceDetAndFPL::findFacesAndPoints(){
                 } else if(programmModus==0){
                     fptSam->cap =cap;
                     fptSam->playSound();
-
-
-
-                  /*  if(fptSam->getBrowL() > 90){
-
-                        cout<<"braue Links: " <<fptSam->getBrowL() << endl;
-                    }
-
-                    else if (fptSam->getBrowR() > 90){
-
-                        cout<<"braue Rechts: " <<fptSam->getBrowR() << endl;
-                    }
-
-                    else if (fptSam->getHeadPosX() > 95){
-
-                        cout<<"HeadPosX 95: " <<fptSam->getHeadPosX() << endl;
-                    }
-
-                    else if (fptSam->getHeadPosX() < 5){
-                        cout<<"headpositiony"<<fptSam->getHeadPosX()<< endl;
-                    }
-
-                    else if (fptSam->getHeadPosY() > 95){
-
-                        cout<<"HeadPosY 95: " <<fptSam->getHeadPosY()<< endl;
-                    }
-
-                     else if (fptSam->getHeadPosY() < 5){
-
-                        cout<<"HeadPosY 5: " <<fptSam->getHeadPosY() << endl;
-                    }
-
-                    else if (fptSam->getMouthOpen() > 95){
-
-                        cout<<"MundAuf 95: " <<fptSam->getMouthOpen() << endl;
-                    }
-
-                    else if (fptSam->getRotationHead() > 95){
-
-                        cout<<"HeadRotation95: " <<fptSam->getRotationHead()<< endl;
-                    }*/
-
                 }
             }
         }
@@ -167,3 +122,19 @@ void FaceDetAndFPL::sendFacePoints(std::vector<full_object_detection> shapes){
     fptSam->shapes = shapes;
 }
 
+
+cv::Size FaceDetAndFPL::getSizeForCameraWin(){
+    int tbheight = 0;
+    RECT rectWork = { 0 };
+    if (SystemParametersInfo(SPI_GETWORKAREA, 0, &rectWork, 0))
+    {
+            int scrheight = GetSystemMetrics(SM_CYSCREEN);
+            tbheight = scrheight - (rectWork.bottom - rectWork.top);
+    }
+
+    int height = GetSystemMetrics(SM_CYSCREEN)/8*5;
+    int width = height*4/3;
+    cv::Size size(width, height);
+    cout<<"height: "<<width<< " " << height <<endl;
+    return size;
+}

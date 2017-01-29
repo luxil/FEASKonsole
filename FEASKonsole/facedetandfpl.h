@@ -22,6 +22,7 @@ public:
     facepointstosample *fptSam;
     SoundModus *soundModus;
     int programmModus;
+    cv::Size getSizeForCameraWin();
 };
 
 #endif // FACEDETANDFPL_H
